@@ -1,0 +1,6 @@
+search page:
+have an imput, write an if statement to check if the inpup matches any of the courses.
+if it matches set the innerhtml to the matching cources and programs. else say No Matches Were Found.
+
+
+padding on text
