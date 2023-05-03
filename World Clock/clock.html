@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<style>
+    body {
+        font-family: 'digital-7';
+        background: #000000;
+        color: white;
+        font-size: 38px;
+    }
+    @font-face {
+        font-family: 'digital-7';
+        src: url('digital-7.ttf');
+    }
+</style>
+<body>
+    <div  style="display: block; margin-top: 100px;">
+        <div style="float: right; margin-right: 50px; margin-bottom: 5px;">
+            <iframe width="750" height="420" src="https://embed.windy.com/embed2.html?lat=39.419&lon=-85.605&detailLat=39.419&detailLon=-85.605&width=650&height=450&zoom=7&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1" frameborder="0"></iframe>
+        <div style="margin-left: 50px;">
+            <p>Noblesville</p>
+            <div id = "clock" onload="currentTime()"></div>
+            <br>
+            <p>London</p>
+            <div id = "clock2" onload="englandTime()"></div>
+            <br>
+            <p>Los Angeles</p>
+            <div id = "clock3" onload="laTime()"></div>
+            <br>
+            <p>Moscow</p>
+            <div id = "clock4" onload="moskowTime()"></div>
+            <br>
+            <p>Japan</p>
+            <div id = "clock5" onload="japanTime()"></div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    function convertTime() {
+        let session = "AM";
+
+        if(hh >= 12 && mm > 0){
+        if (hh == 12) {
+            session = "PM";
+        }else{
+            hh = hh - 12;
+            session = "PM";
+        }
+        }else if(hh == 0){
+            hh = 12;
+        }
+    }
+
+    function currentTime() {
+    let date = new Date(); 
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+    
+  
+    if(hh >= 12 && mm >= 0){
+        if (hh == 12) {
+            session = "PM";
+        }else{
+            hh = hh - 12;
+            session = "PM";
+        }
+     }else if(hh == 0){
+        hh = 12;
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+     if(session == "AM"){
+        document.getElementsByTagName('p')[0].style.color = 'yellow';
+     }
+     else if(session == "PM"){
+        document.getElementsByTagName('p')[0].style.color = 'blue';
+     }
+  
+    document.getElementById("clock").innerText = time; 
+    let t = setTimeout(function(){ currentTime() }, 1000);
+  }
+  
+    currentTime();
+
+    function englandTime() {
+    let date = new Date(); 
+    let hh = date.getHours() + 5;
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+  
+    if(hh >= 12 && mm >= 0){
+        if (hh == 12) {
+            session = "PM";
+        }else{
+            hh = hh - 12;
+            session = "PM";
+        }
+     }else if(hh == 0){
+        hh = 12;
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+     
+     if(session == "AM"){
+        document.getElementsByTagName('p')[1].style.color = 'yellow';
+     }
+     else if(session == "PM"){
+        document.getElementsByTagName('p')[1].style.color = 'blue';
+     }
+  
+    document.getElementById("clock2").innerText = time; 
+    let t = setTimeout(function(){ englandTime() }, 1000);
+  }
+  
+    englandTime();
+
+    function laTime() {
+    let date = new Date(); 
+    let hh = date.getHours() - 3;
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+  
+    if(hh >= 12 && mm >= 0){
+        if (hh == 12) {
+            session = "PM";
+        }else{
+            hh = hh - 12;
+            session = "PM";
+        }
+     }else if(hh == 0){
+        hh = 12;
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+     if(session == "AM"){
+        document.getElementsByTagName('p')[2].style.color = 'yellow';
+     }
+     else if(session == "PM"){
+        document.getElementsByTagName('p')[2].style.color = 'blue';
+     }
+  
+    document.getElementById("clock3").innerText = time; 
+    let t = setTimeout(function(){ laTime() }, 1000);
+  }
+  
+    laTime();
+
+    function moskowTime() {
+    let date = new Date(); 
+    let hh = date.getHours() + 8;
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+  
+    if(hh >= 12 && mm >= 0){
+        if (hh == 12) {
+            session = "PM";
+        }else{
+            hh = hh - 12;
+            session = "PM";
+        }
+     }else if(hh == 0){
+        hh = 12;
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+     if(session == "AM"){
+        document.getElementsByTagName('p')[3].style.color = 'yellow';
+     }
+     else if(session == "PM"){
+        document.getElementsByTagName('p')[3].style.color = 'blue';
+     }
+  
+    document.getElementById("clock4").innerText = time; 
+    let t = setTimeout(function(){ moskowTime() }, 1000);
+  }
+  
+    moskowTime();
+
+    function japanTime() {
+    let date = new Date(); 
+    let hh = date.getHours() + 2;
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "PM";
+  
+    if(hh >= 12 && mm >= 0){
+        if (hh == 12) {
+            session = "AM";
+        }else{
+            hh = hh - 12;
+            session = "AM";
+        }
+     }else if(hh == 0){
+        hh = 12;
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+
+     if(session == "AM"){
+        document.getElementsByTagName('p')[4].style.color = 'yellow';
+     }
+     else if(session == "PM"){
+        document.getElementsByTagName('p')[4].style.color = 'blue';
+     }
+  
+    document.getElementById("clock5").innerText = time; 
+    let t = setTimeout(function(){ japanTime() }, 1000);
+  }
+  
+    japanTime();
+</script>
